@@ -2,7 +2,7 @@
 
 $(function() {
 	// Handlebars
-	var content = $('.page-content');
+	var content = $('#list');
 	var endpoint = content.data('endpoint');
 	if ((typeof endpoint) == 'string' && endpoint != '') {
 		$.getJSON(endpoint).done(function(data) {
@@ -15,13 +15,4 @@ $(function() {
 		}).always(function() {
 		});
 	}
-
-	// jQuery Lazy
-	$('.lazy').Lazy({
-		effect : 'fadeIn',
-		visibleOnly : true,
-		onError : function(element) {
-			console.log('error loading ' + element.data('src'));
-		}
-	});
 });
