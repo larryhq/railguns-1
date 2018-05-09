@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -31,7 +30,6 @@ class BaseModel(AbstractBaseModel):
 
 class OwnerModel(BaseModel):
     user_id = models.IntegerField(default=0, editable=False)  # TODO: default=1
-    username = models.CharField(max_length=150, validators=[get_user_model().username_validator], editable=False)  # 长度和Django的User保持一致
     user_avatar = models.URLField(_('avatar'), max_length=255, blank=True, editable=False)
 
     class Meta(BaseModel.Meta):
